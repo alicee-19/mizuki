@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="menu">
+        <div id="menu-bar" onclick="toggleMenu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="#" onclick="selectPlant('monstera')">Monstera</a></li>
+                <li><a href="#" onclick="selectPlant('snake')">Snake Plant</a></li>
+                <li><a href="#" onclick="selectPlant('aglaonema')">Aglaonema Red</a></li>
+                <li><a href="#">+ Add a plant</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="menu-bg" id="menu-bg"></div>
+    <div class="main-info">
+
+        <div id="monstera" class="info">
+            <div class="tree-img">
+                <img src="images/monstera.png" alt="Monstera">
+            </div>
+            <h1 class="tree-name">MONSTERA</h1>
+            <div class="tree-info">
+                <p><span>Scientific name: </span>Monstera</p>
+                <p><span>Height: </span>80cm</p>
+                <p><span>Shady characters: </span>Part shady</p>
+                <p><span>Watering schedule: </span>Once a week</p>
+            </div>
+            <div class="real-time">
+                <div>
+                    <p style="color:#a63340">Temperature</p>
+                    <div class="container">
+                        <div class="measure temp">27 DegC</div>
+                    </div>
+                </div>
+                <div>
+                    <p style="color: #3357a6">Moisture</p>
+                    <div class="container">
+                        <div class="measure moist">40%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="snake" class="info invisible">
+            <div class="tree-img">
+                <img src="images/snake.webp" alt="Snake Plant">
+            </div>
+            <h1 class="tree-name">SNAKE PLANT</h1>
+            <div class="tree-info">
+                <p><span>Scientific name: </span>Dracaena trifasciata</p>
+                <p><span>Height: </span>60cm</p>
+                <p><span>Shady characters: </span>Part shady</p>
+                <p><span>Watering schedule: </span>Once a week</p>
+            </div>
+            <div class="real-time">
+                <div>
+                    <p style="color:#a63340">Temperature</p>
+                    <div class="container">
+                        <div class="measure temp">30 DegC</div>
+                    </div>
+                </div>
+                <div>
+                    <p style="color: #3357a6">Moisture</p>
+                    <div class="container">
+                        <div class="measure moist">35%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="aglaonema" class="info invisible">
+            <div class="tree-img">
+                <img src="images/red.png" alt="Aglaonema Red">
+            </div>
+            <h1 class="tree-name">AGLAONEMA RED</h1>
+            <div class="tree-info">
+                <p><span>Scientific name: </span>Aglaonema</p>
+                <p><span>Height: </span>40cm</p>
+                <p><span>Shady characters: </span>Part shady</p>
+                <p><span>Watering schedule: </span>Once a week</p>
+            </div>
+            <div class="real-time">
+                <div>
+                    <p style="color:#a63340">Temperature</p>
+                    <div class="container">
+                        <div class="measure temp">29 DegC</div>
+                    </div>
+                </div>
+                <div>
+                    <p style="color: #3357a6">Moisture</p>
+                    <div class="container">
+                        <div class="measure moist">45%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <label class="button">
+                <button class="button-5" role="button" id="waterSwitch">WATER</button>
+            </label>
+            <label class="button">
+                <button class="button-5" role="button" id="graphs">GRAPHS</button>
+            </label>
+        </div>
+
+    </div>
+
+    <script>
+
+        function toggleMenu() {
+                document.getElementById("menu-bar").classList.toggle("change");
+                document.getElementById("nav").classList.toggle("change");
+                document.getElementById("menu-bg").classList.toggle("change-bg");
+         }
+
+
+        //set visible plant
+        function selectPlant(plantId) {
+            var plants = document.getElementsByClassName("info");
+            for (var i = 0; i < plants.length; i++) {
+                plants[i].classList.add('invisible');
+            }
+            document.getElementById(plantId).classList.remove('invisible');
+        }
+
+        //API sth
+        // document.getElementById('waterSwitch').addEventListener('change', function () {
+        //     fetch(`//`, {
+        //         method: 'GET'
+        //     })
+        //         .then(response => response.text())
+        //         .then(data => console.log(data))
+        //         .catch(error => console.error('Error:', error));
+        // });
+
+        // function updateLEDStatus() {
+        //     fetch('https://getled-43r63vujhq-uc.a.run.app')
+        //         .then(response => response.text())
+        //         .then(data => {
+        //             if (data === '1') {
+        //                 document.getElementById('ledSwitch').checked = true;
+        //                 document.body.classList.remove('dark-mode');
+        //             } else if (data === '0') {
+        //                 document.getElementById('ledSwitch').checked = false;
+        //                 document.body.classList.add('dark-mode');
+        //             } else {
+        //                 console.warn('Unexpected LED data:', data);
+        //             }
+        //         })
+        //         .catch(error => console.error('Error fetching LED status:', error));
+        // }
+
+        // updateLEDStatus();
+
+    </script>
+</body>
+
+</html>
